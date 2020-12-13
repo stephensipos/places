@@ -3,4 +3,5 @@
     <string name="add_word">Add place</string>
     <string name="error_empty_input">Cannot add an empty value!</string>
     <string name="error_while_save">Exception!</string>
+    <string name="save_button_lablel">Save to list</string>
 </resources>
