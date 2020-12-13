@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/view_imiage_navigation"
+    app:startDestination="@id/viewImagesFragment">
+
+    <fragment
+        android:id="@+id/viewImagesFragment"
+        android:name="com.stephensipos.andorid.places.screens.ViewImagesFragment"
+        android:label="ViewImagesFragment" />
+</navigation>

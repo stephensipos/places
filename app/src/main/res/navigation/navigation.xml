@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listPlacesFragment">
+
+    <fragment
+        android:id="@+id/listPlacesFragment"
+        android:name="com.stephensipos.andorid.places.screens.ListPlacesFragment"
+        android:label="ListPlacesFragment"
+        tools:layout="@layout/fragment_list_places">
+        <action
+            android:id="@+id/action_listPlacesFragment_to_addPlaceFragment"
+            app:destination="@id/addPlaceFragment">
+        </action>
+        <argument
+            android:name="place_saved"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addPlaceFragment"
+        android:name="com.stephensipos.andorid.places.screens.AddPlaceFragment"
+        android:label="fragment_add_place"
+        tools:layout="@layout/fragment_add_place">
+        <action
+            android:id="@+id/action_addPlaceFragment_to_listPlacesFragment"
+            app:destination="@id/listPlacesFragment" />
+    </fragment>
+</navigation>
