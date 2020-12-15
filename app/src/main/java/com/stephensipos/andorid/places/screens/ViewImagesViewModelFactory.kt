@@ -2,6 +2,7 @@ package com.stephensipos.andorid.places.screens
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.stephensipos.andorid.places.database.PlaceDao
 
 class ViewImagesViewModelFactory(private val placeId: String) :
     ViewModelProvider.Factory {

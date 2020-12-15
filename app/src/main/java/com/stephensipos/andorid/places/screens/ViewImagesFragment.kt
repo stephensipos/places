@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.stephensipos.andorid.places.PlacesApplication
 import com.stephensipos.andorid.places.R
 import com.stephensipos.andorid.places.databinding.ViewImagesFragmentBinding
 
@@ -23,6 +24,7 @@ class ViewImagesFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.view_images_fragment, container, false)
 
         val placeId = activity?.intent?.getStringExtra("place_id").toString()
+        val application = requireNotNull(this.activity).application as PlacesApplication
 
         if (placeId != null) {
             val viewModelFactory = ViewImagesViewModelFactory(placeId)
@@ -47,7 +49,7 @@ class ViewImagesFragment : Fragment() {
             binding.recyclerview.layoutManager = LinearLayoutManager(this.activity)
 
             viewModel.imagesLiveData.observe(viewLifecycleOwner) { images ->
-                images.let { adapter.submitList(it) }
+                images.let { adapter.addHeaderAndSubmitList(it) }
             }
         }
 
