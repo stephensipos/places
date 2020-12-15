@@ -1,9 +1,6 @@
 package com.stephensipos.andorid.places.screens
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.stephensipos.andorid.places.R
 import com.stephensipos.andorid.places.database.Place
 import com.stephensipos.andorid.places.database.PlaceDao
@@ -15,10 +12,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AddPlaceViewModel(private val placeDao: PlaceDao) : ViewModel() {
-    var query: MutableLiveData<String> = MutableLiveData<String>("")
-    var saveError: MutableLiveData<String> = MutableLiveData<String>("")
-    val querySnakeSase = Transformations.map(query) {
+    val query = MutableLiveData<String>("")
+    val saveError = MutableLiveData<String>("")
+    val querySnakeCase = Transformations.map(query) {
         it.toLowerCase().replace(" ", "_").replace(Regex("_+"), "_")
+    }
+
+    private val _clickCounter = MutableLiveData<Int>(0)
+    val clickCounter: LiveData<Int>
+        get() = _clickCounter
+
+    fun increaseCounter() {
+        _clickCounter.value = (clickCounter.value)?.inc()
     }
 
     fun save(): Int? {

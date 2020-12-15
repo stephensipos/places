@@ -51,11 +51,22 @@
             app:layout_constraintTop_toBottomOf="@+id/place_edit_text"
             app:layout_constraintVertical_bias="0.1" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/click_counter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.clickCounter.toString()}"
+            android:onClick="@{() -> viewModel.increaseCounter()}"
+            app:layout_constraintBottom_toTopOf="@+id/place_snake_case"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_place_button" />
+
         <TextView
             android:id="@+id/place_snake_case"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.querySnakeSase}"
+            android:text="@{viewModel.querySnakeCase}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
